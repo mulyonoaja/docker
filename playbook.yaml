@@ -6,23 +6,31 @@
         state: present
       when:
       - ansible_distribution == "CentOS"
-    - name: install python-docker ubuntu
-      apt:
-        name: python-docker
-        state: present
-      when:
-      - ansible_distribution == "Ubuntu"
     - name: pull image
       docker_image:
-       name: mulyonoaja/apache2-custme:latest
+       name: mulyonoaja/apache2-custome:latest
        source: pull
     - name: create container
       docker_container:
-        name: container_by_mulyono
-        image: mulyonoaja/apache2-custme:latest
+        name: container_by_mulyono1
+        image: mulyonoaja/apache2-custome:latest
         state: started
         published_ports:
-           - 80:80
+           - 81:80
         recreate: yes
         interactive: yes
         detach: yes
+    - name: pull image
+      docker_image:
+       name: mulyonoaja/apache-custom:latest
+       source: pull
+    - name: create container
+      docker_container:
+        name: container_by_mulyono2
+        image: mulyonoaja/apache-custom:latest
+        state: started
+        published_ports:
+           - 82:80
+        recreate: yes
+        interactive: yes
+        detach: yes    
