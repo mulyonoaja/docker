@@ -14,15 +14,15 @@
       - ansible_distribution == "Ubuntu"
     - name: pull image
       docker_image:
-       name: mulyonoaja/apache-ubuntu:latest
+       name: mulyonoaja/apache2-custme:latest
        source: pull
     - name: create container
       docker_container:
         name: container_by_mulyono
-        image: mulyonoaja/apache-ubuntu:latest
+        image: mulyonoaja/apache2-custme:latest
         state: started
         published_ports:
-           - 9000:80
+           - 80:80
         recreate: yes
         interactive: yes
         detach: yes
