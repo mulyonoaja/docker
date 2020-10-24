@@ -22,12 +22,12 @@
         detach: yes
     - name: pull image
       docker_image:
-       name: mulyonoaja/apache-custom:latest
+       name: mulyonoaja/apache2-custome:latest
        source: pull
     - name: create container
       docker_container:
         name: container_by_mulyono2
-        image: mulyonoaja/apache-custom:latest
+        image: mulyonoaja/apache2-custome:latest
         state: started
         published_ports:
            - 82:80
